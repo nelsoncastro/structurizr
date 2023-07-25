@@ -138,10 +138,10 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
             
             container "FAM DB" "" "${ORACLE}" {
                tags "${DATABASE}"
-               famWeb -> this "" "${SQL_TCP}"
-               famBatch -> this "" "${SQL_TCP}"
-               famCobranca -> this "" "${SQL_TCP}"
-               famService -> this "" "${SQL_TCP}"
+               famWeb -> this "Usa" "${SQL_TCP}"
+               famBatch -> this "Usa" "${SQL_TCP}"
+               famCobranca -> this "Usa" "${SQL_TCP}"
+               famService -> this "Usa" "${SQL_TCP}"
             }
             
             
