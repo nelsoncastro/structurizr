@@ -54,11 +54,11 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
             
             ffaFinService = group "FFA FINANCEIRO Service" {
                
-               apiffaFin = container "FFA Financeiro API" "" "${JAVA_SPRING}" {
+               apiffaFin = container "FFA Financeiro API" "Permite operação sobre os dados financeiros do FFA" "${JAVA_SPRING}" {
                   tags "${SERVICE_API}"
                }
                
-               container "FFA Financeiro DB" "" "${ORACLE}" {
+               container "FFA Financeiro DB" "Armazena dados financeiros do FFA" "${ORACLE}" {
                   tags "${DATABASE}"
                   apiffaFin -> this "" "${SQL_TCP}"
                }
@@ -68,11 +68,11 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
             
             ffaAdminService = group "FFA ADMIN Service" {
                
-               apiAdmin = container "FFA Admin API" "" "${JAVA_SPRING}" {
+               apiAdmin = container "FFA Admin API" "Permite operações sobre as configurações administrativas do FFA" "${JAVA_SPRING}" {
                   tags "${SERVICE_API}"
                }
                
-               container "FFA Admin DB" "" "${ORACLE}" {
+               container "FFA Admin DB" "Armazena configurações administrativas do FFA" "${ORACLE}" {
                   tags "${DATABASE}"
                   apiAdmin -> this "" "${SQL_TCP}"
                }
@@ -80,12 +80,12 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
             
             ffaCotacaoService = group "FFA Cotação Service" {
                
-               apiCotacao = container "FFA Cotação API" "" "${JAVA_SPRING}"{
+               apiCotacao = container "FFA Cotação API" "Permite incluir e alterar cotações do FFA" "${JAVA_SPRING}"{
                   tags "${SERVICE_API}"
                   this -> apiAdmin "" "${JSON_HTTPS}"
                }
                
-               container "FFA Cotação DB" "" "${ORACLE}" {
+               container "FFA Cotação DB" "Armazena dados de cotações do FFA" "${ORACLE}" {
                   tags "${DATABASE}"
                   apiCotacao -> this "" "${SQL_TCP}"
                }
@@ -93,19 +93,19 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
             
             ffaPropostaService = group "FFA Proposta Service" {
                
-               apiProposta = container "FFA Proposta API" "" "${JAVA_SPRING}"{
+               apiProposta = container "FFA Proposta API" "Permite incluir, cancelar, endossar propostas do FFA" "${JAVA_SPRING}"{
                   tags "${SERVICE_API}"
                   this -> apiAdmin "" "${JSON_HTTPS}"
                   this -> apiFFAFin "" "${JSON_HTTPS}"
                }
                
-               container "FFA Proposta DB" "" "${ORACLE}" {
+               container "FFA Proposta DB" "Armazena dados de propostas do FFA" "${ORACLE}" {
                   tags "${DATABASE}"
                   apiProposta -> this "" "${SQL_TCP}"
                }
             }
             
-            ffaWeb = container "FFA WEB" "" "Angular" {
+            ffaWeb = container "FFA WEB" "Prove todas as funcionalidades para as UTA's comercializarem o seguro FFA" "Angular" {
                tags "Web Browse"
                this -> apiAdmin "" "${JSON_HTTPS}"
                this -> apiCotacao "" "${JSON_HTTPS}"
@@ -116,10 +116,10 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
          
          // FAM
          
-         fam = softwaresystem "FAM" "Sistema FAM" "" {
+         fam = softwaresystem "FAM" "Sistema de Seguro FAM" "" {
             
             
-            famWeb = container "FAM WEB" "Aplicação WEB" "Java/JSF" {
+            famWeb = container "FAM WEB" "Prove todas as funcionalidades para gestão do seguro FAM" "Java/JSF" {
                tags "Web Browse"
             }
             
@@ -131,12 +131,12 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
                tags ""
             }
             
-            famService = container "FAM SERVICE" "API" "Java/SOAP" {
+            famService = container "FAM SERVICE" "Permite realizar operações sobre os dados do FAM" "Java/SOAP" {
                tags ""
             }
             
             
-            container "FAM DB" "" "${ORACLE}" {
+            container "FAM DB" "Armazena dados do FAM" "${ORACLE}" {
                tags "${DATABASE}"
                famWeb -> this "Usa" "${SQL_TCP}"
                famBatch -> this "Usa" "${SQL_TCP}"
