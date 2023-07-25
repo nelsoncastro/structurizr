@@ -22,7 +22,7 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
    
    // Cada workspace deve conter um bloco model, dentro do qual os elementos e relacionamentos são definidos.
    // https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#model
-   model1 {
+   model {
       // A palavra-chave person define uma pessoa (por exemplo, um usuário, ator, função ou persona).
       // https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#person
       user = person "Agente Poupex" "Usuários Unidades Atendimento" "User"
