@@ -25,7 +25,7 @@ workspace "SEGUROS" "Diagramas dos sistemas de Seguros Teste" {
    model {
       // A palavra-chave person define uma pessoa (por exemplo, um usuário, ator, função ou persona).
       // https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#person
-      user1 = person "Agente Poupex" "Usuários Unidades Atendimento" "User"
+      user = person "Agente Poupex" "Usuários Unidades Atendimento" "User"
       
       // A palavra-chave group fornece uma maneira de definir um agrupamento nomeado de elementos, que será renderizado como um limite em torno desses elementos.
       // Os grupos só podem ser usados para agrupar elementos do mesmo tipo (ou seja, o mesmo nível de abstração), como segue:
