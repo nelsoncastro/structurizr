@@ -13,9 +13,4 @@ pipeline {
         }
       }
     }
-    post {
-        success {
-            cleanWs(skipWhenFailed: true)
-        }
-    }    
 }
