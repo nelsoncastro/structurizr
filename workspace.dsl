@@ -1,6 +1,6 @@
 // workspace (espaço de trabalho) é a construção de linguagem de nível superior e o wrapper para o model e views . 
 // Um espaço de trabalho pode, opcionalmente, receber um nome e uma descrição. https://github.com/structurizr/dsl/blob/master/docs/language-reference.md#workspace
-workspace "SEGUROS" "Diagramas dos sistemas de Seguros" {
+workspace "SEGUROS" "Diagramas dos sistemas de Seguros teste" {
    
    !identifiers hierarchical
    
